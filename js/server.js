@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
@@ -11,11 +13,11 @@ app.use(express.static('public'));
 // MongoDB Connection
 mongoose.connect('mongodb://localhost:27017/appointments', { useNewUrlParser: true, useUnifiedTopology: true });
 
-// Routes
+// Rotas
 app.get('/available-times', async (req, res) => {
   const { date } = req.query;
   const bookedTimes = await Appointment.find({ date }).select('time');
-  const allTimes = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'];
+  const allTimes = ['09:00', '10:00', '11:00','12:00','13:00', '14:00', '15:00', '16:00', '17:00', '18:00'];
   const availableTimes = allTimes.filter(time => !bookedTimes.some(booking => booking.time === time));
   res.json(availableTimes);
 });
@@ -42,10 +44,20 @@ cron.schedule('0 20 * * *', async () => {
   };
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: { user: 'sabrina.oliveira0133@gmail.com', pass: 'Henriquenephew963@@' },
+    service: 'Gmail',
+    auth: { user: 'sabrinaoliveira.programadora@gmail.com', pass: 'ulsm svrg xlpt yaxc' },
   });
 
+  //Conexão com o Mongo
+  mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }).then(() => {
+    console.log('Conectado ao MongoDB');
+  }).catch(err => {
+    console.error('Erro ao conectar ao MongoDB:', err);
+  });
+  
   for (const [service, appointments] of Object.entries(services)) {
     const html = `<h1>Relatório de Agendamentos</h1>
       <p>Serviço: ${service}</p>

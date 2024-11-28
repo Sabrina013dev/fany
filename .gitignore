@@ -1,0 +1,13 @@
+# Ignorar arquivos de configuração sensíveis
+.env
+
+# Ignorar dependências do Node.js
+node_modules/
+
+# Ignorar logs
+*.log
+logs/
+
+# Ignorar diretórios de build
+dist/
+build/
