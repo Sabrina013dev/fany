@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Clientes | Fany</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="shortcut icon" href="image/logo2.png" type="image/x-icon">
+</head>
+<body>
+    <main class="container">
+    <h1>Agendamento de Serviços</h1> 
+    <h2>Escolha seu Horário!</h2>
+
+    <form id="container-form">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required placeholder="Nome completo da cliente">
+
+        <label for="whatsapp">WhatsApp:</label>
+        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required>
+
+        <label for="date">Data:</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Horário:</label>
+        <select name="time" id="time" required>
+        <option value="" disabled selected>Escolha a data primeiro.</option></select>
+
+        <fieldset>
+            <legend>Serviços:</legend>
+
+            <label>
+                <input type="checkbox" name="service" value="Manicure">Manicure
+            </label>
+
+            <label>
+                <input type="checkbox" name="service" value="Cabeleleira">Cabeleleira
+            </label>
+        </fieldset>
+
+        <button type="submit">Agendar</button>
+    </form>
+    </main>
+    <script src="js/sript.js"></script>
+</body>
+</html>

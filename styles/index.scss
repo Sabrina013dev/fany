@@ -1,0 +1,55 @@
+@import "value";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: $blue-color;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    text-align: center;
+    background: $basic--color;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0, 0.2);
+    max-width: +400px;
+    width: 100%;
+
+    h1, h2{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+}
+form{
+    margin-top: 20px;
+
+    label, legend{
+        display: block;
+        margin: 10px 0 5px;
+    }
+    input, select, button{
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid $baby--color;
+        border-radius: 4px;
+    }
+    button{
+        background-color: $pink--color;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 0.9em;
+    }
+    button:hover{
+        background-color: $baby--color;
+        color: #000;
+    }
+}
